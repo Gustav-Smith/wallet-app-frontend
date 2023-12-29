@@ -8,7 +8,8 @@
   <title>Wallet App - Cadastrar</title>
 
   <link rel="stylesheet" href="/styles.css">
- 
+  <script src="index.js"></script>
+
 </head>
 
 <body>
@@ -21,11 +22,13 @@
           Insira seu nome e seu e-mail para ter acesso ao Wallet app e
           gerenciar suas finanças.
         </p>
-        <label class="mt" for="input-name">Nome:</label>
-        <input placeholder="Insira seu nome" class="mt smaller" id="input-name" type="name" name="input-name" />
-        <label class="mt" for="input-name">E-mail:</label>
-        <input placeholder="email@exemplo.com" class="mt smaller" id="input-email" type="email" name="input-email" />
-        <button class="full-width mt large">Cadastrar</button>
+        <form id="form-register" class="mt">
+          <label for="input-name">Nome:</label>
+          <input placeholder="Insira seu nome" class="mt smaller" id="input-name" type="name" name="input-name" required/>
+          <label class="mt" for="input-name">E-mail:</label>
+          <input placeholder="email@exemplo.com" class="mt smaller" id="input-email" type="email" name="input-email" required/>
+          <button type="submit" class="full-width mt large">Cadastrar</button>
+        </form>
         <a href="/index.html" class="mt larger" href="">Já possui uma conta ? Faça login aqui.</a>
       </div>
     </div>
