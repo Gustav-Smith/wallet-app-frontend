@@ -42,19 +42,19 @@ const renderFinanceElements = (data) => {
   expensesTextElement.appendChild(expensesText);
   financeCard3.appendChild(expensesTextElement);
 
-   //render balance
-   const financeCard4 = document.getElementById("finance-card-4");
-   const balanceText = document.createTextNode(
-     new Intl.NumberFormat('pt-BR', {
-       syle: 'currency',
-       currency: 'BRL',
-     }).format(totalValue)
-   );
-   const balanceTextElement = document.createElement("h1");
-   balanceTextElement.className = "mt smaller";
-   balanceTextElement.syle.color = '#5936CD'
-   balanceTextElement.appendChild(balanceText);
-   financeCard4.appendChild(balanceTextElement);
+  //render balance
+  const financeCard4 = document.getElementById("finance-card-4");
+  const balanceText = document.createTextNode(
+    new Intl.NumberFormat('pt-BR', {
+      syle: "currency",
+      currency: "BRL",
+    }).format(totalValue)
+  );
+  const balanceTextElement = document.createElement("h1");
+  balanceTextElement.className = "mt smaller";
+  balanceTextElement.style.color = '#5936CD';
+  balanceTextElement.appendChild(balanceText);
+  financeCard4.appendChild(balanceTextElement);
 };
 
 const onLoadFinancesData = async () => {
@@ -71,6 +71,7 @@ const onLoadFinancesData = async () => {
       }
     );
     const data = await result.json();
+    renderFinanceElements(data);
     console.log(data);
     return data;
   } catch (erro) {
@@ -78,7 +79,7 @@ const onLoadFinancesData = async () => {
   }
 };
 
-window.onLoadUserInfo = () => {
+const onLoadUserInfo = () => {
   const email = localStorage.getItem("@walletApp:userEmail");
   const name = localStorage.getItem("@walletApp:userName");
 
