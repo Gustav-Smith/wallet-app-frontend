@@ -60,7 +60,6 @@ button {
   background-color: #5936cd;
   height: 56px;
   width: 430px;
-  padding: 13px;
   border-radius: 12px;
   color: #f4f4f9;
   font-weight: bold;
@@ -71,12 +70,20 @@ button {
 }
 
 button.small {
-  background-color: #f4f4f9;
+  border-width: 2px;
+  border-color: #5936cd;
+  border-style: solid;
+  background-color: #ffffff;
   color: #010400;
+  font-weight: bold;
   font-size: 14px;
   border-radius: 8px;
   width: 90px;
   height: 36px;
+}
+
+button.bug{
+  padding: 18px;
 }
 
 input {
