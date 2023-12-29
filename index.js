@@ -13,7 +13,7 @@ const validateUser = async (email) => {
 
 const onClickLogin = async () => {
   const email = document.getElementById('input-email').value;
-  if (email.lenght < 5 || !email.includes("@")) {
+  if (email.length < 5 || !email.includes("@")) {
     alert("Email inválido!");
     return;
   }

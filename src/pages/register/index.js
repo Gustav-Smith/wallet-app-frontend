@@ -28,12 +28,12 @@ const onRegister = async () => {
   const email = document.getElementById("input-email").value;
   const name = document.getElementById("input-name").value;
 
-  if (name.lenght < 3) {
+  if (name.length < 3) {
     alert("Nome deve conter mais de 3 caracters.");
     return;
   }
 
-  if (email.lenght < 5 || !email.includes("@")) {
+  if (email.length < 5 || !email.includes("@")) {
     alert("Email inválido!");
   }
 
