@@ -1,3 +1,51 @@
+const renderFinancesList = (data) => {
+  const table = document.getElementById("finances-table");
+
+  data.map(item => {
+    const tableRow = document.createElement("tr");
+
+
+    // title
+    const titleTd = document.createElement("td");
+    const titleText = document.createTextNode(item.title);
+    titleTd.appendChild(titleText);
+    tableRow.appendChild(titleTd);
+
+    // category
+    const categoryTd = document.createElement("td");
+    const categoryText = document.createTextNode(item.name);
+    categoryTd.appendChild(categoryText);
+    table.appendChild(categoryTd);
+
+    // date
+    const dateTd = document.createElement("td");
+    const dateText = document.createTextNode(new Date(item.date).toISOString());
+    dateTd.appendChild(dateText);
+    tableRow.appendChild(dateTd);
+
+    // value
+    const valueTd = document.createElement("td");
+    const valueText = document.createTextNode(
+      new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      }).format(item.value)
+    );
+    valueTd.appendChild(valueText);
+    tableRow.appendChild(valueTd);
+
+    // delete
+    const deleteTd = document.createElement("td");
+    const deleteText = document.createTextNode("Deletar");
+    deleteTd.appendChild(deleteText);
+    tableRow.appendChild(deleteTd);
+
+    // table add tablerow
+    table.appendChild(tableRow);
+  });
+};
+
+
 const renderFinanceElements = (data) => {
   const totalItems = data.length;
   const revenues = data
@@ -19,9 +67,9 @@ const renderFinanceElements = (data) => {
   //render revenue
   const financeCard2 = document.getElementById("finance-card-2");
   const revenueText = document.createTextNode(
-    new Intl.NumberFormat('pt-BR', {
-      syle: 'currency',
-      currency: 'BRL',
+    new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
     }).format(revenues)
   );
   const revenueTextElement = document.createElement("h1");
@@ -32,9 +80,9 @@ const renderFinanceElements = (data) => {
   //render expenses
   const financeCard3 = document.getElementById("finance-card-3");
   const expensesText = document.createTextNode(
-    new Intl.NumberFormat('pt-BR', {
-      syle: 'currency',
-      currency: 'BRL',
+    new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
     }).format(expenses)
   );
   const expensesTextElement = document.createElement("h1");
@@ -46,7 +94,7 @@ const renderFinanceElements = (data) => {
   const financeCard4 = document.getElementById("finance-card-4");
   const balanceText = document.createTextNode(
     new Intl.NumberFormat('pt-BR', {
-      syle: "currency",
+      style: "currency",
       currency: "BRL",
     }).format(totalValue)
   );
@@ -72,6 +120,7 @@ const onLoadFinancesData = async () => {
     );
     const data = await result.json();
     renderFinanceElements(data);
+    renderFinancesList(data);
     console.log(data);
     return data;
   } catch (erro) {
